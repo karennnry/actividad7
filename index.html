@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Caja Registradora - Restaurante</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        .estrellas {
+            display: none;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 15px;
+        }
+        .estrellas.visible {
+            display: flex;
+        }
+        .estrellas input {
+            display: none;
+        }
+        .estrellas label {
+            cursor: pointer;
+            line-height: 0;
+        }
+        .estrellas svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: transparent;
+            stroke: #999;
+            stroke-width: 1.5;
+            stroke-linejoin: round;
+            transition: fill 0.2s, stroke 0.2s;
+        }
+        .estrellas label:hover svg,
+        .estrellas label:hover ~ label svg,
+        .estrellas input:checked ~ label svg {
+            fill: #ffc73a;
+            stroke: #ffc73a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>🍕 Pide tu Combo 🍔</h2>
+        
+        <form id="formularioRestaurante">
+            <!-- 1. Plato Principal -->
+            <div class="seccion">
+                <label for="platoPrincipal">Elige tu plato principal:</label>
+                <select id="platoPrincipal" required>
+                    <option value="pizza">Pizza Familiar — $12.00</option>
+                    <option value="hamburguesa">Hamburguesa con Queso — $7.50</option>
+                    <option value="ensalada">Ensalada César — $5.00</option>
+                </select>
+            </div>
+            
+            <!-- 2. Tamaño de Bebida -->
+            <div class="seccion">
+                <label>Tamaño de la Bebida:</label>
+                <div class="opciones-inline">
+                    <input type="radio" id="bebidaP" name="tamanoBebida" value="pequena" checked>
+                    <label for="bebidaP" style="font-weight: normal;">Pequeña (+$1.00)</label>
+                    
+                    <input type="radio" id="bebidaM" name="tamanoBebida" value="mediana">
+                    <label for="bebidaM" style="font-weight: normal;">Mediana (+$1.50)</label>
+                    
+                    <input type="radio" id="bebidaG" name="tamanoBebida" value="grande">
+                    <label for="bebidaG" style="font-weight: normal;">Grande (+$2.00)</label>
+                </div>
+            </div>
+            
+            <!-- 3. Acompañamientos / Extras -->
+            <div class="seccion">
+                <label>¿Deseas agregar extras?</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="extraPapas" value="papas">
+                        <label for="extraPapas" style="font-weight: normal;">Papas Fritas (+$2.50)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="extraHelado" value="helado">
+                        <label for="extraHelado" style="font-weight: normal;">Helado de Vainilla (+$1.80)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="extraFlan" value="flan">
+                        <label for="extraFlan" style="font-weight: normal;">Flan (+$2.00)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit">Calcular Cuenta</button>
+        </form>
+
+        <!-- Recibo -->
+        <div id="reciboRespuesta"></div>
+
+        <!-- Estrellas (From Uiverse.io by SelfMadeSystem) -->
+        <div class="estrellas">
+            <input type="radio" id="star-5" name="star-radio" value="5">
+            <label for="star-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+            </label>
+            <input type="radio" id="star-4" name="star-radio" value="4">
+            <label for="star-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+            </label>
+            <input type="radio" id="star-3" name="star-radio" value="3">
+            <label for="star-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+            </label>
+            <input type="radio" id="star-2" name="star-radio" value="2">
+            <label for="star-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+            </label>
+            <input type="radio" id="star-1" name="star-radio" value="1">
+            <label for="star-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+            </label>
+        </div>
+
+        <div class="panel-admin">
+            <h3>📊 Administración de Ventas</h3>
+            <div class="opciones-inline">
+                <button type="button" id="btnVerHistorial" class="btn-azul">📋 Ver Historial</button>
+                <button type="button" id="btnBorrarHistorial" class="btn-rojo">🗑️ Limpiar Base de Datos</button>
+            </div>
+            <div id="tablaHistorial"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="programa.js"></script>
+</body>
+</html>

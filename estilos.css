@@ -1,0 +1,228 @@
+/* estilos.css */
+
+/* From Uiverse.io by liuyingmei */ 
+body {
+  width: 100%;
+  height: 100%;
+  --color: #E1E1E1;
+  background-color: #F3F3F3;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+}
+
+
+.contenedor { 
+    max-width: 450px; 
+    background: #FCF6EB; 
+    padding: 25px; 
+    border-radius: 12px; 
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.08); 
+    margin: 0 auto; 
+}
+
+h2 { 
+    text-align: center; 
+    color: #AB652C; 
+    margin-bottom: 20px; 
+}
+
+.seccion { 
+    margin-bottom: 20px; 
+    padding-bottom: 15px; 
+    border-bottom: 1px dashed #ddd; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+}
+
+select { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 6px; 
+    border: 1px solid #ccc; 
+    font-size: 15px; 
+}
+
+select, input[type="radio"], input[type="checkbox"] { 
+    cursor: pointer; 
+}
+
+.opciones-inline { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+}
+
+.checkbox-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.checkbox-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+button { 
+    width: 100%; 
+    padding: 12px; 
+    background-color: #3B771F; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    transition: background 0.2s; 
+}
+
+button:hover { 
+    background-color: #218838; 
+}
+
+#reciboRespuesta { 
+    margin-top: 20px; 
+    padding: 15px; 
+    border-radius: 6px; 
+    display: none; 
+    background-color: #FFE6BB; 
+    border: 1px solid #ffeeba; 
+}
+.panel-admin {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.panel-admin h3 {
+    text-align: center;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.btn-azul {
+    background-color: #EC9440 !important;
+}
+.btn-azul:hover {
+    background-color: #C05C06 !important;
+}
+
+.btn-rojo {
+    background-color: #bd2130 !important;
+}
+.btn-rojo:hover {
+    background-color: #821500 !important;
+}
+
+#tablaHistorial {
+    margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    font-size: 13px;
+    background: #FFE6BB;
+    border-radius: 6px;
+    padding: 10px;
+    display: none;
+}
+
+.item-pedido {
+    padding: 8px;
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid #4D5903;
+}
+
+/* From Uiverse.io by SelfMadeSystem */ 
+.estrellas {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.3rem;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 2rem;
+  height: 2rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+   
